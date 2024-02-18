@@ -30,4 +30,4 @@ jobs:
           ${{ runner.os }}-sbt-
 
     - name: Build Scala.js
-      run: sbt fullOptJS
+      run: sbt fullLinkJS
