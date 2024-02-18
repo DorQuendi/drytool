@@ -1,0 +1,33 @@
+name: Scala.js Build
+
+on:
+  push:
+    branches:
+      - main # Change this to your main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Java
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '11'
+
+    - name: Cache Ivy2 and sbt dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.ivy2/cache
+          ~/.sbt
+        key: ${{ runner.os }}-sbt-${{ hashFiles('**/*.sbt', '**/project/build.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-sbt-
+
+    - name: Build Scala.js
+      run: sbt fullOptJS
