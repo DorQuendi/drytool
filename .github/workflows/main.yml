@@ -16,6 +16,10 @@ jobs:
       id-token: write # Required for GitHub Pages deployment
       contents: write # Required for pushing content to the repository
 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
