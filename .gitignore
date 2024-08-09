@@ -1,5 +1,12 @@
-# npm package lock
-package-lock.json
-
 # built files
 dist
+target
+
+# idea
+.idea
+
+# bsp, whatever that is
+.bsp
+
+# node
+node_modules
