@@ -31,3 +31,6 @@ jobs:
 
     - name: Build Scala.js
       run: sbt fullLinkJS
+
+    - name: Build index.html
+      run: npm run build
