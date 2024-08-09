@@ -1,13 +1,9 @@
-name: Vite Build and Deploy
+name: Vite Build and Deploy to production
 
 on:
   push:
     branches:
       - main # Trigger on push to the main branch
-      - 4-github-deployment
-  pull_request:
-    branches:
-      - main # Trigger on pull requests to the main branch
 
 jobs:
   build:
@@ -55,7 +51,6 @@ jobs:
 
     steps:
       - name: Deploy to GitHub Pages
-        if: ${{ github.ref == 'refs/heads/main' }} Condition to only deploy the main branch
         uses: actions/deploy-pages@v4
         with:
           artifact_name: dist
