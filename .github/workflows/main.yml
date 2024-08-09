@@ -16,10 +16,6 @@ jobs:
       id-token: write # Required for GitHub Pages deployment
       contents: write # Required for pushing content to the repository
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -44,7 +40,7 @@ jobs:
         run: npm run build
 
       - name: Upload Build Artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           name: dist
           path: dist
@@ -56,10 +52,6 @@ jobs:
       id-token: write
       contents: write
       pages: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Deploy to GitHub Pages
