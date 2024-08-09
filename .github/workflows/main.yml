@@ -40,9 +40,9 @@ jobs:
         run: npm run build
 
       - name: Upload Build Artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact
         with:
-          name: dist
+          name: github-pages
           path: dist
 
   deploy:
@@ -62,4 +62,4 @@ jobs:
         #if: ${{ github.ref == 'refs/heads/main' }} Condition to only deploy the main branch
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: dist
+          artifact_name: github-pages
