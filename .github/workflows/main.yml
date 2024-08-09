@@ -53,6 +53,10 @@ jobs:
       contents: write
       pages: write
 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Deploy to GitHub Pages
         #if: ${{ github.ref == 'refs/heads/main' }} Condition to only deploy the main branch
