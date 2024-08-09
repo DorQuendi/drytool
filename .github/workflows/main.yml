@@ -55,7 +55,6 @@ jobs:
 
     steps:
       - name: Deploy to GitHub Pages
-        #if: ${{ github.ref == 'refs/heads/main' }} Condition to only deploy the main branch
         uses: actions/deploy-pages@v4
         with:
           artifact_name: dist
